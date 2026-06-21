@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="CHECKLIST">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffe4e6"/>
+      <stop offset="1" stop-color="#fef9c3"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" fill="url(#g)"/>
+  <rect x="72" y="74" width="816" height="392" rx="26" fill="rgba(255,255,255,.88)"/>
+  <rect x="116" y="126" width="360" height="32" rx="16" fill="#e11d48"/>
+  <rect x="116" y="190" width="598" height="24" rx="12" fill="#1f2937" opacity=".82"/>
+  <rect x="116" y="242" width="520" height="24" rx="12" fill="#475569" opacity=".5"/>
+  <rect x="116" y="294" width="650" height="24" rx="12" fill="#475569" opacity=".32"/>
+  <circle cx="760" cy="150" r="52" fill="#e11d48" opacity=".92"/>
+  <rect x="690" y="250" width="120" height="120" rx="26" fill="#e11d48" opacity=".18"/>
+  <text x="116" y="408" font-family="Arial, sans-serif" font-size="38" font-weight="800" fill="#111827">CHECKLIST</text>
+</svg>
