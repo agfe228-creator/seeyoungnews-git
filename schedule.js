@@ -1,9 +1,47 @@
 (function () {
-  function readDate(element) {
-    const value = element.getAttribute('data-publish-at');
+  const scheduleOverrides = {
+    'slow-phone-before-delete-settings.html': '2026-06-29T19:00:00+09:00',
+    'app-permissions-review.html': '2026-07-01T19:00:00+09:00',
+    'public-wifi-security-habits.html': '2026-07-03T19:00:00+09:00',
+    'photo-cleanup-app-before-use.html': '2026-07-05T19:00:00+09:00',
+    'digital-subscription-cleanup.html': '2026-07-07T19:00:00+09:00',
+    'smartphone-no-sound-basic-check.html': '2026-07-09T19:00:00+09:00',
+    'messenger-profile-visibility.html': '2026-07-11T19:00:00+09:00',
+    'phone-loss-security-before.html': '2026-07-13T19:00:00+09:00',
+    'external-drive-cloud-backup-compare.html': '2026-07-15T19:00:00+09:00',
+    'digital-life-total-checklist.html': '2026-07-17T19:00:00+09:00'
+  };
+
+  function parseDate(value) {
     if (!value) return null;
     const date = new Date(value);
     return Number.isNaN(date.getTime()) ? null : date;
+  }
+
+  function findOverrideKey(text) {
+    if (!text) return null;
+    return Object.keys(scheduleOverrides).find(function (key) {
+      return text.indexOf(key) !== -1;
+    });
+  }
+
+  function overrideDateFromLink(element) {
+    const link = element.matches('a[href]') ? element : element.querySelector('a[href]');
+    const key = link ? findOverrideKey(link.getAttribute('href')) : null;
+    return key ? parseDate(scheduleOverrides[key]) : null;
+  }
+
+  function currentArticleOverrideDate() {
+    const key = findOverrideKey(window.location.pathname);
+    return key ? parseDate(scheduleOverrides[key]) : null;
+  }
+
+  function articlePublishDate(article) {
+    return currentArticleOverrideDate() || parseDate(article.getAttribute('data-article-publish-at'));
+  }
+
+  function readDate(element) {
+    return overrideDateFromLink(element) || parseDate(element.getAttribute('data-publish-at'));
   }
 
   function isFuture(element, now) {
@@ -17,6 +55,20 @@
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
     return year + '.' + month + '.' + day;
+  }
+
+  function formatKoreanDateTime(date) {
+    if (!date || Number.isNaN(date.getTime())) return null;
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    return formatKoreanDate(date) + ' ' + hours + ':' + minutes;
+  }
+
+  function updateArticleMetaDate(article, publishAt) {
+    const meta = article.querySelector('.meta');
+    const formatted = formatKoreanDateTime(publishAt);
+    if (!meta || !formatted) return;
+    meta.textContent = meta.textContent.replace(/입력 \d{4}\.\d{2}\.\d{2} \d{2}:\d{2}/, '입력 ' + formatted);
   }
 
   function categoryLinks(categoryText) {
@@ -59,9 +111,9 @@
     const article = document.querySelector('[data-article-publish-at]');
     if (!article || article.querySelector('[data-quality-notes]')) return;
 
-    const publishValue = article.getAttribute('data-article-publish-at');
-    const publishAt = publishValue ? new Date(publishValue) : null;
+    const publishAt = articlePublishDate(article);
     if (publishAt && !Number.isNaN(publishAt.getTime()) && publishAt > new Date()) return;
+    updateArticleMetaDate(article, publishAt);
 
     const meta = article.querySelector('.meta');
     const categoryText = meta ? meta.textContent : '';
@@ -98,8 +150,7 @@
     const article = document.querySelector('[data-article-publish-at]');
     if (!article) return false;
 
-    const value = article.getAttribute('data-article-publish-at');
-    const publishAt = value ? new Date(value) : null;
+    const publishAt = articlePublishDate(article);
     if (!publishAt || Number.isNaN(publishAt.getTime()) || publishAt <= new Date()) return false;
 
     article.innerHTML = '<span class="meta">예약 글</span><h1>아직 공개 전인 글입니다</h1><p>이 글은 예약된 공개 시간이 지난 뒤 확인할 수 있습니다.</p><p><a href="../">홈으로 돌아가기</a></p>';
