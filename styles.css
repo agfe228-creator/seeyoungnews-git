@@ -247,6 +247,7 @@ a { color: inherit; text-decoration: none; }
 .article-card {
   background: #fff;
   border: 1px solid var(--line);
+  border-top: 4px solid var(--blue);
 }
 .article-thumb {
   display: block;
@@ -316,6 +317,61 @@ figcaption {
 }
 .page-articles {
   margin-top: 24px;
+}
+.article-card:has(a[href*="smartphone-battery-settings"]),
+.article-card:has(a[href*="kakao-notification-cleanup"]),
+.article-card:has(a[href*="naver-login-security-check"]),
+.article-card:has(a[href*="google-photos-storage-before-backup"]),
+.article-card:has(a[href*="parents-smartphone-basic-check"]),
+.article-card:has(a[href*="wifi-disconnect-check"]),
+.article-card:has(a[href*="youtube-autoplay-history-settings"]),
+.article-card:has(a[href*="google-two-step-before-start"]),
+.article-card:has(a[href*="iphone-icloud-pc-photo-backup"]),
+.article-card:has(a[href*="new-phone-before-switch-checklist"]),
+.article-card:has(a[href*="mobile-data-usage-spike-check"]),
+.article-card:has(a[href*="naver-app-alert-location-settings"]),
+.article-card:has(a[href*="phishing-message-safety-rules"]),
+.article-card:has(a[href*="android-contacts-backup-check"]),
+.article-card:has(a[href*="monthly-account-security-check"]),
+.article-card:has(a[href*="smartphone-font-display-comfort"]),
+.article-card:has(a[href*="shopping-delivery-app-alerts"]),
+.article-card:has(a[href*="old-password-change-routine"]),
+.article-card:has(a[href*="cloud-storage-cleanup-priority"]),
+.article-card:has(a[href*="family-emergency-info-settings"]),
+.article-card:has(a[href*="screenshot-screen-recording-basic"]),
+.article-card:has(a[href*="map-location-history-privacy"]),
+.article-card:has(a[href*="used-phone-before-sell-privacy"]),
+.article-card:has(a[href*="kakao-chat-backup-before"]),
+.article-card:has(a[href*="travel-smartphone-prep-checklist"]) {
+  padding-top: 10px;
+}
+.article-card:has(a[href*="smartphone-battery-settings"]) .article-thumb,
+.article-card:has(a[href*="kakao-notification-cleanup"]) .article-thumb,
+.article-card:has(a[href*="naver-login-security-check"]) .article-thumb,
+.article-card:has(a[href*="google-photos-storage-before-backup"]) .article-thumb,
+.article-card:has(a[href*="parents-smartphone-basic-check"]) .article-thumb,
+.article-card:has(a[href*="wifi-disconnect-check"]) .article-thumb,
+.article-card:has(a[href*="youtube-autoplay-history-settings"]) .article-thumb,
+.article-card:has(a[href*="google-two-step-before-start"]) .article-thumb,
+.article-card:has(a[href*="iphone-icloud-pc-photo-backup"]) .article-thumb,
+.article-card:has(a[href*="new-phone-before-switch-checklist"]) .article-thumb,
+.article-card:has(a[href*="mobile-data-usage-spike-check"]) .article-thumb,
+.article-card:has(a[href*="naver-app-alert-location-settings"]) .article-thumb,
+.article-card:has(a[href*="phishing-message-safety-rules"]) .article-thumb,
+.article-card:has(a[href*="android-contacts-backup-check"]) .article-thumb,
+.article-card:has(a[href*="monthly-account-security-check"]) .article-thumb,
+.article-card:has(a[href*="smartphone-font-display-comfort"]) .article-thumb,
+.article-card:has(a[href*="shopping-delivery-app-alerts"]) .article-thumb,
+.article-card:has(a[href*="old-password-change-routine"]) .article-thumb,
+.article-card:has(a[href*="cloud-storage-cleanup-priority"]) .article-thumb,
+.article-card:has(a[href*="family-emergency-info-settings"]) .article-thumb,
+.article-card:has(a[href*="screenshot-screen-recording-basic"]) .article-thumb,
+.article-card:has(a[href*="map-location-history-privacy"]) .article-thumb,
+.article-card:has(a[href*="used-phone-before-sell-privacy"]) .article-thumb,
+.article-card:has(a[href*="kakao-chat-backup-before"]) .article-thumb,
+.article-card:has(a[href*="travel-smartphone-prep-checklist"]) .article-thumb,
+.article-body[data-article-publish-at] .article-hero-image {
+  display: none;
 }
 @media (max-width: 900px) {
   .article-grid {
