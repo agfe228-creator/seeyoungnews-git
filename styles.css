@@ -233,7 +233,16 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 580px) {
   .container, .page { width: min(100% - 24px, 1088px); }
   .masthead { min-height: 136px; }
-  .category-inner { gap: 18px; }
+  .category-inner {
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    overflow-x: visible;
+    padding: 10px 0;
+  }
+  .category-inner a {
+    padding: 8px 0 7px;
+    font-size: 15px;
+  }
   .hero-copy h1, .page h1 { font-size: 34px; }
   .category-grid { grid-template-columns: 1fr; }
   .page-copy { padding: 22px; }
@@ -369,8 +378,7 @@ figcaption {
 .article-card:has(a[href*="map-location-history-privacy"]) .article-thumb,
 .article-card:has(a[href*="used-phone-before-sell-privacy"]) .article-thumb,
 .article-card:has(a[href*="kakao-chat-backup-before"]) .article-thumb,
-.article-card:has(a[href*="travel-smartphone-prep-checklist"]) .article-thumb,
-.article-body[data-article-publish-at] .article-hero-image {
+.article-card:has(a[href*="travel-smartphone-prep-checklist"]) .article-thumb {
   display: none;
 }
 @media (max-width: 900px) {

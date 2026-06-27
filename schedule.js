@@ -119,7 +119,7 @@
 
   function appendQualityNotes() {
     const article = document.querySelector('[data-article-publish-at]');
-    if (!article || article.querySelector('[data-quality-notes]')) return;
+    if (!article || article.querySelector('[data-quality-notes], [data-static-review-notes]')) return;
 
     const publishAt = articlePublishDate(article);
     updateArticleMetaDate(article, publishAt);
