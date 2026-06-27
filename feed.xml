@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>SY Guide</title>
+    <link>https://seeyoungnews.com/</link>
+    <description>스마트폰 사용법, 앱 설정, 계정 보안, 백업과 생활 체크리스트를 정리하는 디지털 생활 가이드</description>
+    <language>ko-KR</language>
+    <lastBuildDate>Sat, 27 Jun 2026 19:00:00 +0900</lastBuildDate>
+    <item><title>스마트폰 저장공간 부족할 때 먼저 확인할 7가지</title><link>https://seeyoungnews.com/articles/smartphone-storage-check.html</link><guid>https://seeyoungnews.com/articles/smartphone-storage-check.html</guid><pubDate>Sun, 21 Jun 2026 09:00:00 +0900</pubDate><description>저장공간 사용량, 메신저 파일, 다운로드 폴더, 앱 캐시를 순서대로 확인하는 방법입니다.</description></item>
+    <item><title>카카오톡 저장공간 줄이는 방법</title><link>https://seeyoungnews.com/articles/kakao-storage-cleanup.html</link><guid>https://seeyoungnews.com/articles/kakao-storage-cleanup.html</guid><pubDate>Sun, 21 Jun 2026 09:10:00 +0900</pubDate><description>카카오톡 대화방 미디어, 캐시, 다운로드 파일을 안전하게 정리하는 순서입니다.</description></item>
+    <item><title>구글 계정 보안 설정 기본 순서</title><link>https://seeyoungnews.com/articles/google-account-security-basic.html</link><guid>https://seeyoungnews.com/articles/google-account-security-basic.html</guid><pubDate>Sun, 21 Jun 2026 09:20:00 +0900</pubDate><description>비밀번호, 복구 이메일, 로그인된 기기, 2단계 인증을 확인하는 방법입니다.</description></item>
+    <item><title>사진을 삭제하기 전에 백업 확인하는 방법</title><link>https://seeyoungnews.com/articles/photo-backup-before-delete.html</link><guid>https://seeyoungnews.com/articles/photo-backup-before-delete.html</guid><pubDate>Sun, 21 Jun 2026 09:30:00 +0900</pubDate><description>사진 삭제 전 클라우드 백업 완료 여부와 다른 기기 확인으로 자료 손실을 줄이는 방법입니다.</description></item>
+    <item><title>한 달에 한 번 하면 좋은 디지털 정리 체크리스트</title><link>https://seeyoungnews.com/articles/monthly-digital-cleanup-checklist.html</link><guid>https://seeyoungnews.com/articles/monthly-digital-cleanup-checklist.html</guid><pubDate>Sun, 21 Jun 2026 09:40:00 +0900</pubDate><description>앱, 알림, 저장공간, 계정 보안, 백업 상태를 월간으로 점검하는 방법입니다.</description></item>
+    <item><title>스마트폰 배터리가 빨리 닳을 때 확인할 설정 7가지</title><link>https://seeyoungnews.com/articles/smartphone-battery-settings.html</link><guid>https://seeyoungnews.com/articles/smartphone-battery-settings.html</guid><pubDate>Tue, 23 Jun 2026 01:30:00 +0900</pubDate><description>화면 밝기, 백그라운드 실행, 위치 권한, 배터리 사용량을 확인하는 방법입니다.</description></item>
+    <item><title>카카오톡 알림이 너무 많을 때 줄이는 설정 순서</title><link>https://seeyoungnews.com/articles/kakao-notification-cleanup.html</link><guid>https://seeyoungnews.com/articles/kakao-notification-cleanup.html</guid><pubDate>Tue, 23 Jun 2026 07:30:00 +0900</pubDate><description>대화방별 알림과 채널 알림을 나누어 중요한 연락은 유지하고 피로를 줄입니다.</description></item>
+    <item><title>피싱 문자 의심될 때 확인해야 할 안전 수칙</title><link>https://seeyoungnews.com/articles/phishing-message-safety-rules.html</link><guid>https://seeyoungnews.com/articles/phishing-message-safety-rules.html</guid><pubDate>Thu, 25 Jun 2026 12:30:00 +0900</pubDate><description>문자 링크를 누르기 전 발신자, 주소, 요구 정보를 차분하게 확인하는 방법입니다.</description></item>
+    <item><title>중고폰 판매 전 개인정보 지우는 순서</title><link>https://seeyoungnews.com/articles/used-phone-before-sell-privacy.html</link><guid>https://seeyoungnews.com/articles/used-phone-before-sell-privacy.html</guid><pubDate>Sat, 27 Jun 2026 12:30:00 +0900</pubDate><description>백업, 계정 로그아웃, 공장 초기화, 유심 제거를 차례대로 확인합니다.</description></item>
+    <item><title>여행 가기 전 스마트폰 준비 체크리스트</title><link>https://seeyoungnews.com/articles/travel-smartphone-prep-checklist.html</link><guid>https://seeyoungnews.com/articles/travel-smartphone-prep-checklist.html</guid><pubDate>Sat, 27 Jun 2026 20:30:00 +0900</pubDate><description>지도, 데이터, 배터리, 결제 앱, 사진 백업, 분실 대비 설정을 확인합니다.</description></item>
+  </channel>
+</rss>
