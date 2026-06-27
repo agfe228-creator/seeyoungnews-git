@@ -44,11 +44,6 @@
     return overrideDateFromLink(element) || parseDate(element.getAttribute('data-publish-at'));
   }
 
-  function isFuture(element, now) {
-    const publishAt = readDate(element);
-    return publishAt && publishAt > now;
-  }
-
   function formatKoreanDate(date) {
     if (!date || Number.isNaN(date.getTime())) return '2026.06.23';
     const year = date.getFullYear();
@@ -73,38 +68,18 @@
 
   function categoryLinks(categoryText) {
     if (categoryText.indexOf('계정/보안') !== -1) {
-      return [
-        ['보호나라', 'https://www.boho.or.kr/'],
-        ['Google 계정 도움말', 'https://support.google.com/accounts/?hl=ko'],
-        ['네이버 고객센터', 'https://help.naver.com/']
-      ];
+      return [['보호나라', 'https://www.boho.or.kr/'], ['Google 계정 도움말', 'https://support.google.com/accounts/?hl=ko'], ['네이버 고객센터', 'https://help.naver.com/']];
     }
     if (categoryText.indexOf('앱 설정') !== -1) {
-      return [
-        ['카카오 고객센터', 'https://cs.kakao.com/'],
-        ['Google 고객센터', 'https://support.google.com/'],
-        ['Apple 지원', 'https://support.apple.com/ko-kr']
-      ];
+      return [['카카오 고객센터', 'https://cs.kakao.com/'], ['Google 고객센터', 'https://support.google.com/'], ['Apple 지원', 'https://support.apple.com/ko-kr']];
     }
     if (categoryText.indexOf('백업/저장공간') !== -1) {
-      return [
-        ['Google 포토 고객센터', 'https://support.google.com/photos/?hl=ko'],
-        ['Apple iCloud 지원', 'https://support.apple.com/ko-kr/icloud'],
-        ['카카오 고객센터', 'https://cs.kakao.com/']
-      ];
+      return [['Google 포토 고객센터', 'https://support.google.com/photos/?hl=ko'], ['Apple iCloud 지원', 'https://support.apple.com/ko-kr/icloud'], ['카카오 고객센터', 'https://cs.kakao.com/']];
     }
     if (categoryText.indexOf('생활 체크리스트') !== -1) {
-      return [
-        ['보호나라', 'https://www.boho.or.kr/'],
-        ['Google 안전 센터', 'https://safety.google/intl/ko/'],
-        ['Apple 지원', 'https://support.apple.com/ko-kr']
-      ];
+      return [['보호나라', 'https://www.boho.or.kr/'], ['Google 안전 센터', 'https://safety.google/intl/ko/'], ['Apple 지원', 'https://support.apple.com/ko-kr']];
     }
-    return [
-      ['Google 고객센터', 'https://support.google.com/'],
-      ['Apple 지원', 'https://support.apple.com/ko-kr'],
-      ['보호나라', 'https://www.boho.or.kr/']
-    ];
+    return [['Google 고객센터', 'https://support.google.com/'], ['Apple 지원', 'https://support.apple.com/ko-kr'], ['보호나라', 'https://www.boho.or.kr/']];
   }
 
   function appendQualityNotes() {
@@ -112,13 +87,11 @@
     if (!article || article.querySelector('[data-quality-notes]')) return;
 
     const publishAt = articlePublishDate(article);
-    if (publishAt && !Number.isNaN(publishAt.getTime()) && publishAt > new Date()) return;
     updateArticleMetaDate(article, publishAt);
 
     const meta = article.querySelector('.meta');
     const categoryText = meta ? meta.textContent : '';
-    const links = categoryLinks(categoryText);
-    const sourceItems = links.map(function (link) {
+    const sourceItems = categoryLinks(categoryText).map(function (link) {
       return '<li><a href="' + link[1] + '" target="_blank" rel="noopener">' + link[0] + '</a></li>';
     }).join('');
 
@@ -146,18 +119,6 @@
     });
   }
 
-  function protectFutureArticle() {
-    const article = document.querySelector('[data-article-publish-at]');
-    if (!article) return false;
-
-    const publishAt = articlePublishDate(article);
-    if (!publishAt || Number.isNaN(publishAt.getTime()) || publishAt <= new Date()) return false;
-
-    article.innerHTML = '<span class="meta">예약 글</span><h1>아직 공개 전인 글입니다</h1><p>이 글은 예약된 공개 시간이 지난 뒤 확인할 수 있습니다.</p><p><a href="../">홈으로 돌아가기</a></p>';
-    document.title = '예약 글 | SY Guide';
-    return true;
-  }
-
   function revealPublishedItems() {
     const now = new Date();
     let nextPublishAt = null;
@@ -166,7 +127,7 @@
       const publishAt = readDate(element);
       if (!publishAt) return;
 
-      if (isFuture(element, now)) {
+      if (publishAt > now) {
         element.hidden = true;
         element.setAttribute('aria-hidden', 'true');
         if (!nextPublishAt || publishAt < nextPublishAt) nextPublishAt = publishAt;
@@ -177,7 +138,7 @@
     });
 
     updateEmptyStates();
-    if (!protectFutureArticle()) appendQualityNotes();
+    appendQualityNotes();
 
     if (nextPublishAt) {
       const delay = Math.min(nextPublishAt.getTime() - now.getTime() + 1000, 2147483647);
